@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contains routes of status, stats"""
+"""Contains status, stats routes"""
 from flask import jsonify
 from api.v1.views import app_views
 from models.amenity import Amenity
@@ -11,13 +11,13 @@ from models.user import User
 from models import storage
 
 
-@app_views.route('/status', methods=['GET'], strict_slashes=False)
+@app_views.route('/status')
 def status():
     """returns status of API"""
     return jsonify({'status': 'OK'})
 
 
-@app_views.route('/stats', methods=['GET'], strict_slashes=False)
+@app_views.route('/stats')
 def stats():
     "retrieves the number of each objects by type"
     return jsonify({
