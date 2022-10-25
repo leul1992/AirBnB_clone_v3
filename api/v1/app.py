@@ -11,15 +11,15 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 app.register_blueprint(app_views)
 @app.teardown_appcontext
-def teardown():
+def teardown(Exception):
     """closes the storage on teardown"""
     storage.close()
 
 
 @app.errorhandler(404)
-def not_found():
+def not_found(err):
     """handles if not found"""
-    return make_response(jsonify({'error': 'Not found'}), 404)
+    return make_response(jsonify({"error": "Not found"}), 404)
 
 
 if __name__ == '__main__':
