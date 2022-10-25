@@ -71,7 +71,7 @@ def post_review(place_id):
                  strict_slashes=False)
 def put_review(review_id):
     """Update a review"""
-    review = storage.get("Review", review_id)
+    review = storage.get(Review, review_id)
     if review is None:
         abort(404)
     if not request.get_json():
