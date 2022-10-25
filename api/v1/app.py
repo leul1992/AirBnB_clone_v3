@@ -18,8 +18,8 @@ def teardown(Exception):
 
 @app.errorhandler(404)
 def not_found(err):
-    """handles if not found"""
-    return make_response(jsonify({"error": "Not found"}), 404)
+    """handles error of 404"""
+    return make_response(jsonify({'error': "Not found"}), 404)
 
 
 if __name__ == '__main__':
